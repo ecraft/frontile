@@ -63,7 +63,7 @@ export default class ChangesetFormFieldsBase<
     later(
       this,
       () => {
-        this.args.changeset.validate(this.args.fieldName);
+        this.args.changeset?.validate(this.args.fieldName);
       },
       1
     );
