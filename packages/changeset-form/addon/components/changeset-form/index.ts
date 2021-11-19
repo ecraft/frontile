@@ -27,6 +27,14 @@ interface ChangesetFormArgs {
    */
   validateOnInit?: boolean;
 
+  /**
+   * Skip running execute AND save. Useful for immutable source objects.
+   * Will also return the whole changeset to onSubmit instead of the
+   * executed result.
+   * @defaultValue false
+   */
+  skipExecution?: boolean;
+
   /** Callback exeuted when from `onsubmit` event is triggered */
   onSubmit?: (data: unknown, event: Event) => void;
 
@@ -66,14 +74,19 @@ export default class ChangesetForm extends Component<ChangesetFormArgs> {
     }
 
     let result;
-    if (this.args.runExecuteInsteadOfSave) {
-      result = changeset.execute();
+    if (this.args.skipExecution) {
+      result = changeset;
     } else {
-      result = await changeset.save({});
+      if (this.args.runExecuteInsteadOfSave) {
+        result = changeset.execute();
+      } else {
+        result = await changeset.save({});
+      }
+      result = result.data;
     }
 
     if (typeof this.args.onSubmit === 'function') {
-      this.args.onSubmit(result.data, event);
+      this.args.onSubmit(result, event);
     }
   }
 
