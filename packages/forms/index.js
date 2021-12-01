@@ -8,6 +8,7 @@ module.exports = {
     }
   },
 
+  isDevelopingAddon() { return true; },
   included(includer, ...rest) {
     const app = includer.app || includer;
     const powerSelectOptions = app.options['ember-power-select'] || {};

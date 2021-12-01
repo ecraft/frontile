@@ -1,0 +1,20 @@
+<div
+  ...attributes
+>
+  {{yield
+    (hash
+      id=this.id
+      hintId=this.hintId
+      feedbackId=this.feedbackId
+
+      Label=(component "frontile-form-field/label" for=this.id size=@size)
+      Hint=(component "frontile-form-field/hint" id=this.hintId size=@size)
+      Feedback=(component "frontile-form-field/feedback" id=this.feedbackId size=@size)
+
+      Input=(component "frontile-form-field/input" id=this.id size=@size)
+      Textarea=(component "frontile-form-field/textarea" id=this.id size=@size)
+      Checkbox=(component "frontile-form-field/checkbox" id=this.id size=@size)
+      Radio=(component "frontile-form-field/radio" id=this.id size=@size)
+    )
+  }}
+</div>

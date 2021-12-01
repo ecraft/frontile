@@ -1,15 +1,15 @@
 {{yield
   (hash
-    Input=(component "changeset-form/fields/input" changeset=@changeset)
-    Textarea=(component "changeset-form/fields/textarea" changeset=@changeset)
-    Select=(component "changeset-form/fields/select" changeset=@changeset)
-    Checkbox=(component "changeset-form/fields/checkbox" changeset=@changeset)
+    Input=(component "changeset-form/fields/frontile-input" changeset=@changeset)
+    Textarea=(component "changeset-form/fields/frontile-textarea" changeset=@changeset)
+    Select=(component "changeset-form/fields/frontile-select" changeset=@changeset)
+    Checkbox=(component "changeset-form/fields/frontile-checkbox" changeset=@changeset)
     CheckboxGroup=(component
-      "changeset-form/fields/checkbox-group" changeset=@changeset
+      "changeset-form/fields/frontile-checkbox-group" changeset=@changeset
     )
-    Radio=(component "changeset-form/fields/radio" changeset=@changeset)
+    Radio=(component "changeset-form/fields/frontile-radio" changeset=@changeset)
     RadioGroup=(component
-      "changeset-form/fields/radio-group" changeset=@changeset
+      "changeset-form/fields/frontile-radio-group" changeset=@changeset
     )
   )
 }}
